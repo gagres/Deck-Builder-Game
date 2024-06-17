@@ -1,6 +1,7 @@
-[gd_scene load_steps=3 format=3 uid="uid://dd3v04lt1yu3a"]
+[gd_scene load_steps=4 format=3 uid="uid://dd3v04lt1yu3a"]
 
 [ext_resource type="Texture2D" uid="uid://cp4iq5fd6j8be" path="res://art/background.png" id="1_sm1f3"]
+[ext_resource type="PackedScene" uid="uid://0y8b3ax1yiu7" path="res://Scenes/Card/card_ui.tscn" id="2_kf14p"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_ieoj1"]
 size = Vector2(256, 100)
@@ -20,3 +21,26 @@ collision_layer = 2
 [node name="CollisionShape2D" type="CollisionShape2D" parent="CardDropArea"]
 position = Vector2(128, 50)
 shape = SubResource("RectangleShape2D_ieoj1")
+
+[node name="BattleUI" type="CanvasLayer" parent="."]
+
+[node name="Hand" type="HBoxContainer" parent="BattleUI"]
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -75.0
+offset_top = -30.0
+offset_right = 75.0
+grow_horizontal = 2
+grow_vertical = 0
+
+[node name="CardUI" parent="BattleUI/Hand" instance=ExtResource("2_kf14p")]
+layout_mode = 2
+
+[node name="CardUI2" parent="BattleUI/Hand" instance=ExtResource("2_kf14p")]
+layout_mode = 2
+
+[node name="CardUI3" parent="BattleUI/Hand" instance=ExtResource("2_kf14p")]
+layout_mode = 2
